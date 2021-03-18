@@ -1,4 +1,4 @@
-package stdInput
+package stdin
 
 import (
 	"bufio"
@@ -8,12 +8,14 @@ import (
 
 var reader *bufio.Reader
 
-func StartReader() {
-	reader = bufio.NewReader(os.Stdin)
-}
-
 func ReadLine() (string, error) {
-	// Reading line and error (line to 'text' and error to '_')
+
+	// Initializing reader on first usage
+	if reader == nil {
+		reader = bufio.NewReader(os.Stdin)
+	}
+
+	// Reading line and error
 	text, err := reader.ReadString('\n')
 
 	if err != nil {

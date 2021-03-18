@@ -1,3 +1,3 @@
-module github.com/Ortega-Dan/goStdinReader
+module github.com/Ortega-Dan/golang-stdin
 
 go 1.11
