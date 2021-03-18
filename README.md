@@ -4,7 +4,7 @@
 Usage:
 
 ```golang
-import github.com/Ortega-Dan/golang-stdin/stdin
+import "github.com/Ortega-Dan/golang-stdin/stdin"
 
 
 func myFunction(){
