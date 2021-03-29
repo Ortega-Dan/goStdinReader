@@ -9,7 +9,7 @@ import (
 var reader *bufio.Reader
 
 // Reads a line from std input without default trim
-func ReadLineNoTrim() (string, error) {
+func ReadLineNoTrim() string {
 
 	// Initializing reader on first usage
 	if reader == nil {
@@ -19,8 +19,9 @@ func ReadLineNoTrim() (string, error) {
 	// Reading line and error
 	text, err := reader.ReadString('\n')
 
+	// in case of error, just panic
 	if err != nil {
-		return "", err
+		panic(err)
 	}
 
 	// convert CRLF to LF
@@ -29,18 +30,16 @@ func ReadLineNoTrim() (string, error) {
 	// Remove the last character LF
 	text = text[0 : len(text)-1]
 
-	return text, nil
+	return text
 }
 
 // Reads a line from std input with default trim
-func ReadLine() (string, error) {
+func ReadLine() string {
 
-	text, err := ReadLineNoTrim()
-	if err != nil {
-		return "", err
-	}
+	text := ReadLineNoTrim()
+
 	// Trim space around
 	text = strings.TrimSpace(text)
 
-	return text, nil
+	return text
 }
