@@ -8,7 +8,7 @@ import (
 
 var reader *bufio.Reader
 
-// Reads a line from std input without default trim
+// Reads a line from std input without default trim.
 func ReadLineNoTrim() string {
 
 	// Initializing reader on first usage
@@ -33,7 +33,7 @@ func ReadLineNoTrim() string {
 	return text
 }
 
-// Reads a line from std input with default trim
+// Reads a line from std input with default trim.
 func ReadLine() string {
 
 	text := ReadLineNoTrim()
@@ -44,9 +44,9 @@ func ReadLine() string {
 	return text
 }
 
-// if no error opening the file exists, returns a
-// function that reads line by line when called
-// the returned function returns io.EOF as error when successfully done with the reading.
+// If no error opening the file exists, returns a
+// function that reads line by line when called.
+// The returned function returns io.EOF as error when successfully done with the reading,
 // or another error if a different error existed.
 func NewLineByLineFileReader(path string) (readerFunc func() (string, error), err error) {
 
